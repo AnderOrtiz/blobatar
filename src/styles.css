@@ -1,0 +1,118 @@
+:root {
+  --ink: #1b1b18;
+  --ink-soft: #1b1b18a8;
+  color-scheme: light;
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: clamp(16px, 3vw, 32px);
+  background: var(--bg);
+  transition: background-color 400ms ease;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.studio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 8dvh;
+}
+
+.stage {
+  width: min(68vw, 42dvh, 520px);
+  aspect-ratio: 1;
+}
+
+.stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.name {
+  width: min(100%, clamp(440px, 28vw, 600px));
+  height: clamp(56px, 8dvh, 80px);
+  padding: 0 clamp(16px, 5vw, 32px);
+  border: 0;
+  border-radius: 999px;
+  outline: 0;
+  background: #ffffffd9;
+  color: inherit;
+  font: inherit;
+  /* Nunca por debajo de 16px: iOS haría zoom al enfocar el input. */
+  font-size: clamp(1.125rem, 0.9rem + 0.8vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--head), transparent 45%);
+  transition: box-shadow 200ms ease;
+}
+
+.name::placeholder {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.name:focus {
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--head), var(--ink) 25%);
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* Poca altura, como un móvil con el teclado abierto: se quita lo prescindible. */
+@media (max-height: 480px) {
+  .studio {
+    padding-bottom: 0;
+  }
+
+  .hint {
+    display: none;
+  }
+}
+
+/* Móvil en horizontal: avatar e input, uno al lado del otro. */
+@media (max-height: 480px) and (min-width: 520px) {
+  .studio {
+    flex-direction: row;
+    gap: clamp(24px, 5vw, 56px);
+  }
+
+  .stage {
+    flex: none;
+    width: min(38vw, 68dvh);
+  }
+
+  .name {
+    width: min(100%, 360px);
+  }
+}
