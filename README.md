@@ -1,14 +1,18 @@
 # Blobatar Playground
 
+**[Live demo](https://ander-ortiz-blobatar.netlify.app/)**
+
 Página con un único input: escribes un nombre y se dibuja su avatar al momento. Está hecha con React y [blobatar](https://github.com/Alain00/blobatar).
 
 ## Instalación
 
 Necesitas Node.js `^20.19.0` o `>=22.12.0`, y npm.
 
-Desde la carpeta del proyecto, instala las dependencias y arranca el servidor de desarrollo:
+Clona el [repositorio](https://github.com/AnderOrtiz/blobatar), instala las dependencias y arranca el servidor de desarrollo:
 
 ```sh
+git clone https://github.com/AnderOrtiz/blobatar.git
+cd blobatar
 npm install
 npm run dev
 ```
